@@ -16,14 +16,14 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - id: gcp-auth
-        name: Google authentication
-        uses: google-github-actions/auth@v2
-        with:
-          token_format: "access_token"
-          service_account: artifact-writer@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com
-          workload_identity_provider: ${{ vars.GCPV2_GITHUB_WORKLOAD_IDENTITY_PROVIDER }}
+      # - uses: actions/checkout@v4
+      # - id: gcp-auth
+      #   name: Google authentication
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     token_format: "access_token"
+      #     service_account: artifact-writer@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com
+      #     workload_identity_provider: ${{ vars.GCPV2_GITHUB_WORKLOAD_IDENTITY_PROVIDER }} // comment this
 
       - name: Generate versioned tag
         id: versioned-tag
